@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image Test</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <h1>Urban Luxe Co.</h1>
+
+    <button id="login-btn">Login</button>
+
+    <section id="shop-section">
+        <button id="start-shopping-btn">Start Shopping</button>
+    </section>
+
+
+    <section id="features-section">
+
+    <!-- Row of boxes -->
+    <div id="feature-row">
+        <div class="feature-card" data-type="contact">Contact</div>
+        <div class="feature-card" data-type="about">About</div>
+        <div class="feature-card" data-type="reviews">Reviews</div>
+    </div>
+
+    <!-- Shared details box -->
+    <div id="feature-details-box">
+        <p id="contact-details">
+            Email: contact@urbanluxeCo.com<br>
+            Phone: +91 99922 23331
+        </p>
+
+        <p id="about-details">
+            This store provides quality rare luxury products.
+        </p>
+
+        <p id="reviews-details">
+            ⭐⭐⭐⭐⭐ Rated by 1000+ customers
+        </p>
+    </div>
+
+</section>
+
+
+
+    
+
+
+    <div id="login-overlay"></div>
+
+    <div id="login-popup">
+        <h2 id="login-title">Login</h2>
+
+        <input type="email" id="login-email" placeholder="Email" />
+        <input type="password" id="login-password" placeholder="Password" />
+
+    <button id="login-submit-btn">Login</button>
+
+    <p id="login-toggle-text">
+        New user?
+        <span id="login-toggle-link">Sign up</span>
+    </p>
+</div>
+
+
+<section id="shop-page" class ="hidden">
+    <div class="shop-header">
+        <button id="back-home">← Back</button>
+    </div>
+    <div id="product-grid"></div>
+
+    <div id="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <p id="cart-total">Total: ₹0</p>
+        <button id="place-order">Place Order</button>
+    </div>
+</section>
+
+<button>Add to Cart</button>
+
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

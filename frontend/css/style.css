@@ -1,0 +1,424 @@
+/* ================= GLOBAL ================= */
+
+body {
+    margin: 0;
+    min-height: 20vh;
+    font-family: Arial, sans-serif;
+
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+    text-align: center;
+    padding-top: 11vh;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ================= HEADING ================= */
+
+h1 {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 90px;
+    margin: 0;
+}
+
+/* ================= LOGIN BUTTON ================= */
+
+#login-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+
+    background-color: rgb(131, 131, 131);
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+#login-btn:hover {
+    background-color: rgba(179, 168, 168, 0.512);
+}
+
+/* ================= SHOP SECTION ================= */
+
+#shop-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 80px;
+}
+
+/* ================= START SHOPPING TEXT ================= */
+
+#start-shopping-btn {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+
+    padding: 0;
+    margin: 0;
+
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+#start-shopping-btn::after {
+    content: " →";
+    font-size: 60px;
+    margin-left: 10px;
+}
+
+/* ================= FEATURES SECTION ================= */
+
+#features-section {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Row of feature boxes */
+#feature-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* Feature box */
+.feature-card {
+    width: 220px;
+    height: 140px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+    cursor: pointer;
+
+    
+}
+
+
+
+/* Hover effect */
+.feature-card:hover {
+    transform: translateY(-6px);
+    transition: transform 0.3s ease;
+}
+
+/* Animation keyframes */
+@keyframes popUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= DETAILS BOX ================= */
+
+#feature-details-box {
+    margin: 40px auto 0;
+    width: 700px;
+    padding: 10px;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+    color: white;
+    text-align: center;
+
+    display: none;
+}
+
+/* Hide all details initially */
+#feature-details-box p {
+    display: none;
+    margin: 0;
+}
+
+/* Show active detail */
+#feature-details-box p.show {
+    display: block;
+}
+
+.feature-card:focus {
+    outline: none;
+}
+
+.feature-card:active {
+    outline: none;
+}
+
+.feature-card:active {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.feature-card.active {
+    border-color: white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+
+
+
+/* Remove browser focus / click outlines completely */
+.feature-card:focus,
+.feature-card:focus-visible,
+.feature-card:active {
+    outline: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* keep original shadow */
+}
+
+/* Prevent any default highlight or tap effect */
+.feature-card {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+
+
+/* ===== LOGIN POPUP OVERLAY ===== */
+#login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+
+    z-index: 2000;
+}
+
+/* ===== LOGIN POPUP BOX ===== */
+#login-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+
+    width: 320px;
+    padding: 30px;
+
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+
+    text-align: center;
+    color: white;
+
+    display: none;
+    opacity: 0;
+
+    z-index: 2001;
+    transition: all 0.3s ease;
+}
+
+/* Show popup */
+#login-popup.show {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Inputs */
+#login-popup input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+/* Submit button */
+#login-submit-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+
+    background-color: #ffffff;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+/* Toggle text */
+#login-toggle-text {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Toggle link */
+#login-toggle-link {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
+#shop-page {
+    min-height: 100vh;
+    background: #111;
+    padding: 40px;
+}
+
+
+.fade {
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+#product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.product-card {
+    background: rgba(255, 255, 255, 0.86);
+    border-radius: 16px;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.product-card button {
+    margin-top: 10px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #000;
+}
+
+.product-card img{
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#shop-page{
+    min-height: 100vh;
+
+    background-image: url("../images/2nd_background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 40px;
+}
+
+#shop-page{
+    background-color: #000;
+}
+
+#shop-page::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+}
+
+#shop-page > * {
+    position: relative;
+    z-index: 1;
+}
+
+#cart {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#cart-items div{
+    color: #000000;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+#cart h2{
+    color:#000;
+    font-size: 22px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+#cart-total {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #050505; /* gold accent */
+    letter-spacing: 0.5px;
+}
+
+
+#place-order {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
